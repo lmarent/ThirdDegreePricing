@@ -1,0 +1,4 @@
+Service;Min Value;Max Value;Increment;Service Probability;Usage Percentage;Price access;Price Use;Elasticity;Load in MB/Min;requiredCapacity;betaPrice;betaTime;delayTolerant;Time_average
+Real_traffic;1;1;1;0.4;29.2;0;0.016667;1.45;1;32;2.0296666667;0;N;0
+DTN_traffic;1;1;1;0.4;63.8;0;0.016667;1.45;1;32;2.0296666667;0.03;Y;7
+Quality;2;2;1;0.8;7;0;0.016667;1.337;0.234375;32;1.8133333333;0;N;0
