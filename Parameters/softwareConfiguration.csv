@@ -1,3 +1,3 @@
 Function;Value
 demandFunction;demandChangeFunction3
-backHaulPricingPolicy;AnchorCustomerPolicy
+backHaulPricingPolicy;ContinuosMixTechnologiesWithPricePolicy

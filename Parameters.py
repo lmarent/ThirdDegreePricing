@@ -37,8 +37,8 @@ class GeneralParameters(object):
         self._inital_demand_percentage = 0
         #self._optimal_policy = 'AnchorCustomerPolicy'
         self._optimal_policy = 'ContinuosMixTechnologyPolicy' 
-        self._result_relative_path = 'workspace/NetworkOptimization/Optimization/Results'
-        self._general_results_statistics = 'fileResultStochastic.txt'
+        self._result_relative_path = 'ThirdDegreePricing/Results'
+        self._general_results_statistics = 'fileResult.txt'
         self._detail_results_statistics = 'detail.txt'
 
     def calculateMonthlyInvestmentRate(self):
@@ -108,7 +108,7 @@ class GeneralParameters(object):
        
 def loadCapacityIncrements(capacityIncrements):
     # Load Channel characteristics, this channels are in Kbps (Kilo bits per second)
-    fname = path.expanduser('~/workspace/NetworkOptimization/Optimization/Parameters/Channels.csv')
+    fname = path.expanduser('~/Parameters/Channels.csv')
     channels = numpy.genfromtxt(fname,dtype=float, skip_header=1, delimiter=';', usecols=0)
     #print channels
     # checks if channels are well configurated
@@ -131,7 +131,7 @@ def loadDemandIncreasePattern():
     #                              third column: second period and so on.
     #                              element i,j of the table is cluster i period j-1    
     demandData = {}
-    fname = path.expanduser('~/workspace/NetworkOptimization/Optimization/Parameters/estimatedDemand.csv')
+    fname = path.expanduser('~/Parameters/estimatedDemand.csv')
     clusters = numpy.genfromtxt(fname, delimiter=';', dtype=str, skip_header=0)[0,:]
     load = numpy.genfromtxt(fname, delimiter=';', dtype=str, skip_header=0)[1,:]
     demandDataTmp = numpy.genfromtxt(fname,skip_header=2, delimiter=';')
@@ -145,7 +145,7 @@ def loadServiceParameters(serviceParameters):
     # Load services labels
     error = False
     error_message = 'None'
-    fname = path.expanduser('~/workspace/NetworkOptimization/Optimization/Parameters/ServiceParameters.csv')
+    fname = path.expanduser('~/Parameters/ServiceParameters.csv')
     services = numpy.genfromtxt(fname, delimiter=';', usecols=0, dtype=str, skip_header=1)
     delayTolerant = numpy.genfromtxt(fname, delimiter=';', usecols=13, dtype=str, skip_header=1)
     # Load the rest of parameters: Min Value, Max Value, Increment
@@ -216,7 +216,7 @@ def loadServiceParameters(serviceParameters):
 
 def loadConstants(constants):
     # define constants for problem calculation
-    fname = path.expanduser('~/workspace/NetworkOptimization/Optimization/Parameters/constants.csv')
+    fname = path.expanduser('~/Parameters/constants.csv')
     constantsName = np.genfromtxt(fname, delimiter=';', usecols=0, dtype=str, skip_header=1)
     constantsData = numpy.genfromtxt(fname,skip_header=1, delimiter=';')[:,1:]
     #my_consts={"nValue":3, "minServers":1, "maxServers":15, "KbitsSecond": 1024, "MBytes": 8388608  } 
@@ -229,7 +229,7 @@ def loadConstants(constants):
     constants['finalWorkingHour'] = np.asscalar(np.int16(constants['finalWorkingHour']))
 
     # Reads the software configuration parameters
-    fname = path.expanduser('~/workspace/NetworkOptimization/Optimization/Parameters/softwareConfiguration.csv')
+    fname = path.expanduser('~/Parameters/softwareConfiguration.csv')
     constantsName = np.genfromtxt(fname, delimiter=';', usecols=0, dtype=str, skip_header=1)
     constantsData = numpy.genfromtxt(fname,skip_header=1, delimiter=';', dtype=str)[:,1:]
     for index in range(len(constantsName)):        
@@ -240,7 +240,7 @@ def loadParameters( constants, clusterData, serviceParameters, listaEjecucion):
 
 
     # load Traffic demand - Demand traffic is in Megabytes for hour
-    fname = path.expanduser('~/workspace/NetworkOptimization/Optimization/Parameters/demandaGeneral.csv')
+    fname = path.expanduser('~/Parameters/demandaGeneral.csv')
     data = numpy.genfromtxt(fname,skip_header=1, delimiter=';')
     cluster = data[:,0]
     totalTrafficWeekDays = data[:,1]

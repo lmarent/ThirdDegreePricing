@@ -58,7 +58,7 @@ class ContinuousEconomicModel(object):
         
     def executeDailyPolicy(self,configuration, period, cluster_index, general_parameters, technologies_container, service_container, customer, registerDetails):
         timeMethods = backHaulCycleTimeMethods()
-        module = 'Optimization.' + general_parameters.get_optimal_policy_module()
+        module = general_parameters.get_optimal_policy_module()
         policy_module = importlib.import_module(module)
         policy = policy_module.Policy()
         assigment_container = AssignmentContainer(AssignmentContainer.TYPE_CLUSTER)       
